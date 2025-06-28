@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سیستم ثبت تردد</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Tahoma', 'Helvetica Neue', Arial, sans-serif; /* Common Farsi font */
+    }
+    /* Custom scrollbar for better aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    /* Ensure body takes full height for centering content */
+    html, body, #root {
+      min-height: 100vh; /* Changed from min-h-screen for body to ensure root also expands */
+      height: 100%; /* Ensure full height */
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex; /* Added for centering #root content */
+      align-items: center; /* Vertically center */
+      justify-content: center; /* Horizontally center */
+    }
+    #root {
+        width: 100%; /* Allow root to take full width for its content sizing */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.4.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 to-slate-700 text-slate-100 p-4">
+  <div id="root"></div>
+  <script>
+    // Mock process.env for browser environment if API_KEY is needed client-side for Gemini
+    // In a real production scenario, API keys should be handled securely, typically via a backend proxy.
+    // For this frontend-only example, if you were to use it directly (not recommended for production):
+    // window.process = { env: { API_KEY: "YOUR_GEMINI_API_KEY_HERE" } };
+    // However, the instructions state process.env.API_KEY is pre-configured.
+    // This implies it's available in the execution environment (e.g. Node.js for SSR, or bundler replacement).
+    // For a pure client-side build without a bundler doing replacement, this would be an issue.
+    // Given the constraints, we'll assume the environment handles `process.env.API_KEY`.
+  </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
